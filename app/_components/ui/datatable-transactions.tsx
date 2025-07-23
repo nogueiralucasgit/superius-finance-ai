@@ -11,6 +11,34 @@ import {
   TableHeader,
   TableRow,
 } from "@/app/_components/ui/table";
+import { PenBoxIcon, TrashIcon } from "lucide-react";
+
+const transactionCategoryMap = {
+  FOOD: "Alimentação",
+  TRANSPORT: "Transporte",
+  ENTERTAINMENT: "Entretenimento",
+  HOUSING: "Moradia",
+  HEALTH: "Saúde",
+  SALARY: "Salário",
+  UTILITIES: "Utilidades",
+  HEALTHCARE: "Cuidados com a saúde",
+  SHOPPING: "Compras",
+  TRAVEL: "Viagem",
+  OTHER: "Outro",
+};
+
+const transactionsPaymentMethodMap = {
+  CASH: "Dinheiro",
+  CREDIT_CARD: "Cartão de Crédito",
+  DEBIT_CARD: "Cartão de Débito",
+  BANK_TRANSFER: "Transferência Bancária",
+  BANK_SLIP: "Boleto Bancário",
+  MOBILE_PAYMENT: "Pagamento Mobile",
+  PIX: "Pix",
+  CRYPTOCURRENCY: "Criptomoeda",
+  OTHER: "Outro",
+};
+
 interface DataTableTransactionsProps {
   transactions: Transaction[];
 }
@@ -46,19 +74,27 @@ const DataTableTransactions = ({
                 currency: "BRL",
               })}
             </TableCell>
-            <TableCell>{transaction.category ?? "-"}</TableCell>
-            <TableCell>{transaction.paymentMethod ?? "-"}</TableCell>
+            <TableCell>
+              {transaction.category
+                ? transactionCategoryMap[transaction.category]
+                : "-"}
+            </TableCell>
+            <TableCell>
+              {transaction.paymentMethod
+                ? transactionsPaymentMethodMap[transaction.paymentMethod]
+                : "-"}
+            </TableCell>
             <TableCell>{transaction.description ?? "-"}</TableCell>
             <TableCell>
               {new Date(transaction.date).toLocaleDateString("pt-BR")}
             </TableCell>
             <TableCell>
               {/* Botões de ação, substitua pelos seus componentes se desejar */}
-              <Button size="sm" variant="outline" className="mr-2">
-                Editar
+              <Button size="sm" variant="ghost" className="mr-2">
+                <PenBoxIcon></PenBoxIcon>
               </Button>
-              <Button size="sm" variant="destructive">
-                Excluir
+              <Button size="sm" variant="ghost">
+                <TrashIcon></TrashIcon>
               </Button>
             </TableCell>
           </TableRow>
