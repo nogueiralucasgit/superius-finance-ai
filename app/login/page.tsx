@@ -1,7 +1,16 @@
 import Image from "next/image";
 import { Button } from "@/app/_components/ui/button";
+import { SignUpButton } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs/server";
+import { redirect } from "next/navigation";
 
 const LoginPage = () => {
+  const { userId } = auth();
+
+  if (userId) {
+    redirect("/");
+  }
+
   return (
     <div className="grid h-full grid-cols-2">
       {/* {ESQUERDA} */}
@@ -19,7 +28,9 @@ const LoginPage = () => {
           utiliza IA para monitorar suas movimentações, e oferecer insights
           personalizados, facilitando o controle do seu orçamento.
         </p>
-        <Button variant="outline">Fazer login ou criar conta</Button>
+        <SignUpButton>
+          <Button variant="outline">Fazer login ou criar conta</Button>
+        </SignUpButton>
       </div>
       {/* {DIREITA} */}
       <div className="relative h-full w-full">
