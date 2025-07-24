@@ -49,6 +49,8 @@ import { CalendarIcon } from "lucide-react";
 import { Popover, PopoverTrigger, PopoverContent } from "./ui/popover";
 import { Calendar } from "./ui/calendar";
 import { cn } from "@/app/_lib/utils";
+import { AddTransaction } from "../_actions/add-transaction.ts";
+import { useState } from "react";
 
 type FormSchema = z.infer<typeof formSchema>;
 
@@ -94,13 +96,21 @@ function AddTransactionButton() {
       date: new Date(),
     },
   });
+  const [dialogIsOpen, setDialogIsOpen] = useState(false);
 
-  const onSubmit = (data: FormSchema) => {
-    console.log(data);
+  const onSubmit = async (data: FormSchema) => {
+    try {
+      await AddTransaction(data);
+      setDialogIsOpen(false);
+      form.reset();
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
     <Dialog
+      open={dialogIsOpen}
       onOpenChange={(open) => {
         if (!open) {
           form.reset();
