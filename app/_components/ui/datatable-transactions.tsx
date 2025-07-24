@@ -11,11 +11,12 @@ import {
   TableHeader,
   TableRow,
 } from "@/app/_components/ui/table";
-import { PenBoxIcon, TrashIcon } from "lucide-react";
+import { TrashIcon } from "lucide-react";
 import {
   transactionCategoryMap,
   transactionsPaymentMethodMap,
 } from "@/app/_constants/transactions";
+import EditTransactionsButton from "@/app/transactions/components/edit-transactions-button";
 
 interface DataTableTransactionsProps {
   transactions: Transaction[];
@@ -67,9 +68,7 @@ const DataTableTransactions = ({
               {new Date(transaction.date).toLocaleDateString("pt-BR")}
             </TableCell>
             <TableCell>
-              <Button size="sm" variant="ghost" className="mr-2">
-                <PenBoxIcon></PenBoxIcon>
-              </Button>
+              <EditTransactionsButton transaction={transaction} />
               <Button size="sm" variant="ghost">
                 <TrashIcon></TrashIcon>
               </Button>

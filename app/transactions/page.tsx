@@ -4,6 +4,7 @@ import AddTransactionButton from "../_components/add-transaction-button";
 
 const TransactionsPage = async () => {
   const transactions = await db.transaction.findMany({});
+  console.log(transactions);
 
   return (
     <div className="mx-auto space-y-6 p-6 px-8 py-8">
