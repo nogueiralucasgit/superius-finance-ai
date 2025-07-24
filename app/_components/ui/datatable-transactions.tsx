@@ -12,32 +12,10 @@ import {
   TableRow,
 } from "@/app/_components/ui/table";
 import { PenBoxIcon, TrashIcon } from "lucide-react";
-
-const transactionCategoryMap = {
-  FOOD: "Alimentação",
-  TRANSPORT: "Transporte",
-  ENTERTAINMENT: "Entretenimento",
-  HOUSING: "Moradia",
-  HEALTH: "Saúde",
-  SALARY: "Salário",
-  UTILITIES: "Utilidades",
-  HEALTHCARE: "Cuidados com a saúde",
-  SHOPPING: "Compras",
-  TRAVEL: "Viagem",
-  OTHER: "Outro",
-};
-
-const transactionsPaymentMethodMap = {
-  CASH: "Dinheiro",
-  CREDIT_CARD: "Cartão de Crédito",
-  DEBIT_CARD: "Cartão de Débito",
-  BANK_TRANSFER: "Transferência Bancária",
-  BANK_SLIP: "Boleto Bancário",
-  MOBILE_PAYMENT: "Pagamento Mobile",
-  PIX: "Pix",
-  CRYPTOCURRENCY: "Criptomoeda",
-  OTHER: "Outro",
-};
+import {
+  transactionCategoryMap,
+  transactionsPaymentMethodMap,
+} from "@/app/_constants/transactions";
 
 interface DataTableTransactionsProps {
   transactions: Transaction[];
@@ -89,7 +67,6 @@ const DataTableTransactions = ({
               {new Date(transaction.date).toLocaleDateString("pt-BR")}
             </TableCell>
             <TableCell>
-              {/* Botões de ação, substitua pelos seus componentes se desejar */}
               <Button size="sm" variant="ghost" className="mr-2">
                 <PenBoxIcon></PenBoxIcon>
               </Button>
