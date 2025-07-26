@@ -30,6 +30,12 @@ const transactionsPaymentMethodMap = {
   OTHER: "Outro",
 };
 
+const transactionsType = {
+  DEPOSIT: "Depósito",
+  EXPENSE: "Despesa",
+  INVESTMENT: "Investimento",
+};
+
 // OPTIONS
 
 const TRANSACTIONS_TYPE_OPTIONS = [
@@ -79,6 +85,7 @@ const TRANSACTIONS_CATEGORY_OPTIONS = [
 export {
   transactionCategoryMap,
   transactionsPaymentMethodMap,
+  transactionsType,
   TRANSACTIONS_TYPE_OPTIONS,
   TRANSACTIONS_PAYMENT_METHOD_OPTIONS,
   TRANSACTIONS_CATEGORY_OPTIONS,

@@ -17,6 +17,7 @@ import {
   transactionsPaymentMethodMap,
 } from "@/app/_constants/transactions";
 import EditTransactionsButton from "@/app/transactions/components/edit-transactions-button";
+import DeleteTransactionButton from "@/app/transactions/components/delete-transactions-button";
 
 interface DataTableTransactionsProps {
   transactions: Transaction[];
@@ -69,9 +70,7 @@ const DataTableTransactions = ({
             </TableCell>
             <TableCell>
               <EditTransactionsButton transaction={transaction} />
-              <Button size="sm" variant="ghost">
-                <TrashIcon></TrashIcon>
-              </Button>
+              <DeleteTransactionButton transaction={transaction} />
             </TableCell>
           </TableRow>
         ))}
