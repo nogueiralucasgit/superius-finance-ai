@@ -24,7 +24,6 @@ import {
   TransactionType,
 } from "@prisma/client";
 import {
-  DialogTrigger,
   Dialog,
   DialogContent,
   DialogHeader,

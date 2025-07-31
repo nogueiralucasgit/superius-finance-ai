@@ -15,7 +15,6 @@ const SummaryCard = ({
   title,
   amount,
   size = "small",
-  userCanAddTransaction,
 }: SummaryCardProps) => {
   return (
     <Card>

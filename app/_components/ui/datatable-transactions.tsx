@@ -1,4 +1,3 @@
-import { Button } from "@/app/_components/ui/button";
 import { Transaction } from "@prisma/client";
 import TypeBadge from "@/app/transactions/components/type-badge";
 import {
@@ -11,7 +10,6 @@ import {
   TableHeader,
   TableRow,
 } from "@/app/_components/ui/table";
-import { TrashIcon } from "lucide-react";
 import {
   transactionCategoryMap,
   transactionsPaymentMethodMap,
